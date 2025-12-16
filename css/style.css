@@ -1,0 +1,435 @@
+/* Osnovne nastavitve */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    background: #05070b;
+    color: #f5f5f5;
+    line-height: 1.6;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.logo {
+    font-size: 22px;
+    letter-spacing: 0.4em;
+    font-weight: 600;
+    display: flex;
+    flex-direction: column-reverse;
+}
+
+#myCanvas{
+    margin: auto;
+    height: 100px;
+    width: 100px;
+}
+.sredina {
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+/* Layout */
+.main-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 20;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 7vw;
+    background: linear-gradient(to bottom, rgba(5,7,11,0.96), rgba(5,7,11,0.5), transparent);
+    backdrop-filter: blur(12px);
+}
+.nav {
+    display: flex;
+    gap: 28px;
+    align-items: center;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+.nav a {
+    position: relative;
+    padding-bottom: 4px;
+    color: #e4e4e4;
+}
+
+.nav a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, #f03737, #ff7b3b);
+    transition: width 0.25s ease;
+}
+
+.nav a:hover::after {
+    width: 100%;
+}
+
+.nav-cta {
+    padding: 8px 16px;
+    border-radius: 999px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    background: radial-gradient(circle at top left, rgba(255,255,255,0.15), transparent);
+}
+
+/* Hero sekcija */
+.hero {
+    position: relative;
+    min-height: 100vh;
+    padding: 0 7vw;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    background: radial-gradient(circle at 10% 0%, #2b2f3a 0, #05070b 52%),
+                radial-gradient(circle at 90% 100%, #b60f24 0, #05070b 50%);
+    overflow: hidden;
+}
+
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: url("../img/avto.jpg")
+        center right/cover no-repeat;
+    opacity: 0.35;
+    mix-blend-mode: screen;
+}
+
+.hero::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, #05070b 0, rgba(5,7,11,0.7) 35%, transparent 65%);
+}
+
+.hero-content {
+    position: relative;
+    max-width: 520px;
+    z-index: 2;
+}
+
+.hero h1 {
+    font-size: clamp(40px, 5vw, 58px);
+    margin-bottom: 18px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.hero p {
+    font-size: 16px;
+    color: #d0d0d0;
+    max-width: 420px;
+    margin-bottom: 32px;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 16px;
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 24px;
+    border-radius: 999px;
+    font-size: 14px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease;
+}
+
+.btn.primary {
+    background: linear-gradient(135deg, #f03737, #ff7b3b);
+    color: #fff;
+    box-shadow: 0 18px 40px rgba(240, 55, 55, 0.35);
+}
+
+.btn.primary:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 26px 55px rgba(240, 55, 55, 0.4);
+}
+
+.btn.secondary {
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    background: rgba(5,7,11,0.6);
+    color: #f5f5f5;
+}
+
+.btn.secondary:hover {
+    background: rgba(255,255,255,0.1);
+}
+
+.btn.full-width {
+    width: 100%;
+}
+
+/* Sekcije */
+section {
+    padding: 90px 7vw;
+}
+
+.models-section,
+.technology-section {
+    background: radial-gradient(circle at top, #10131c 0, #05070b 60%);
+}
+
+.models-section h2,
+.technology-section h2,
+.design-section h2,
+.contact-section h2 {
+    font-size: 28px;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    margin-bottom: 10px;
+}
+
+.section-subtitle {
+    color: #b5b5b5;
+    max-width: 540px;
+    margin-bottom: 34px;
+}
+
+/* Modeli */
+.models-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 24px;
+}
+
+.model-card {
+    background: radial-gradient(circle at top, #232633 0, #10131c 50%, #070910 100%);
+    border-radius: 18px;
+    overflow: hidden;
+    border: 1px solid rgba(255,255,255,0.05);
+    display: flex;
+    flex-direction: column;
+    min-height: 320px;
+    box-shadow: 0 18px 40px rgba(0,0,0,0.5);
+}
+
+.model-image {
+    height: 300px;
+    background-size: cover;
+    background-position: center;
+}
+
+.model-3 {
+    background-image: url(../img/mazda3.jpg);
+}
+
+.cx-5 {
+    background-image: url(../img/mazdacx5.jpg);
+}
+
+.mx-5 {
+    background-image: url(../img/mazdamx5.jpg);
+}
+
+.model-info {
+    padding: 18px 18px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.model-info h3 {
+    font-size: 18px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+}
+
+.model-info p {
+    font-size: 14px;
+    color: #cfcfcf;
+}
+
+.model-meta {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 8px;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: #9ca3af;
+}
+
+.link {
+    margin-top: 12px;
+    font-size: 13px;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: #ff7b3b;
+}
+
+.link::after {
+    content: "→";
+    font-size: 12px;
+}
+
+/* Design sekcija */
+.design-section {
+    display: grid;
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+    gap: 50px;
+    align-items: center;
+    background: radial-gradient(circle at 0 0, #b60f24 0, #05070b 55%);
+}
+
+.design-text p {
+    margin-bottom: 12px;
+    color: #d6d6d6;
+}
+
+.design-list {
+    list-style: none;
+    margin-top: 16px;
+}
+
+.design-list li {
+    position: relative;
+    padding-left: 22px;
+    margin-bottom: 8px;
+    font-size: 14px;
+    color: #c7c7c7;
+}
+
+.design-list li::before {
+    content: "";
+    position: absolute;
+    left: 4px;
+    top: 7px;
+    width: 8px;
+    height: 8px;
+    border-radius: 999px;
+    background: linear-gradient(135deg, #f03737, #ff7b3b);
+}
+
+.design-image {
+    height: 320px;
+    border-radius: 22px;
+    background:
+        radial-gradient(circle at 10% 0%, rgba(255,255,255,0.18) 0, transparent 50%),
+        url("https://images.pexels.com/photos/1149831/pexels-photo-1149831.jpeg?auto=compress&cs=tinysrgb&w=1600")
+        center/cover no-repeat;
+    box-shadow: 0 30px 70px rgba(0,0,0,0.8);
+    border: 1px solid rgba(255,255,255,0.1);
+}
+/* Footer */
+.main-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 22px 7vw 30px;
+    font-size: 12px;
+    color: #878787;
+    background: #05070b;
+    border-top: 1px solid rgba(255,255,255,0.05);
+}
+
+.footer-left {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.footer-logo {
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+}
+
+.footer-right {
+    display: flex;
+    gap: 16px;
+}
+
+.footer-right a {
+    color: #a1a1aa;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .models-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .design-section {
+        grid-template-columns: minmax(0, 1.1fr);
+    }
+
+    .design-image {
+        order: -1;
+    }
+
+    .technology-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .nav {
+        gap: 18px;
+    }
+}
+
+@media (max-width: 768px) {
+    .main-header {
+        padding-inline: 16px;
+    }
+
+    .hero {
+        padding-inline: 16px;
+        align-items: flex-end;
+        padding-bottom: 80px;
+    }
+
+    .hero::after {
+        background: linear-gradient(0deg, #05070b 10%, rgba(5,7,11,0.7) 45%, transparent 80%);
+    }
+
+    section {
+        padding-inline: 16px;
+    }
+
+    .models-grid,
+    .technology-grid {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .form-row {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .nav {
+        display: none; /* za resno stran bi naredili mobilni meni */
+    }
+
+    .main-footer {
+        flex-direction: column;
+        gap: 10px;
+        align-items: flex-start;
+    }
+}
