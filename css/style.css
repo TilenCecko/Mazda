@@ -335,7 +335,7 @@ section {
     border-radius: 22px;
     background:
         radial-gradient(circle at 10% 0%, rgba(255,255,255,0.18) 0, transparent 50%),
-        url("https://images.pexels.com/photos/1149831/pexels-photo-1149831.jpeg?auto=compress&cs=tinysrgb&w=1600")
+        url(../img/mazda_logo.png)
         center/cover no-repeat;
     box-shadow: 0 30px 70px rgba(0,0,0,0.8);
     border: 1px solid rgba(255,255,255,0.1);
