@@ -16,7 +16,9 @@ img {
     max-width: 100%;
     display: block;
 }
-
+.mazdalogopng{
+    transform: scale(0.5);
+}
 a {
     text-decoration: none;
     color: inherit;
@@ -335,10 +337,12 @@ section {
     border-radius: 22px;
     background:
         radial-gradient(circle at 10% 0%, rgba(255,255,255,0.18) 0, transparent 50%),
-        url(../img/mazda_logo.png)
         center/cover no-repeat;
     box-shadow: 0 30px 70px rgba(0,0,0,0.8);
     border: 1px solid rgba(255,255,255,0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 /* Footer */
 .main-footer {
