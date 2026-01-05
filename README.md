@@ -1,6 +1,7 @@
 # Mazda Logo – Bézierjeve krivulje v praksi
 
-Prijekt v katerem sem s pomočjo **Bézierjevih krivulj** poustvaril prepoznaven **Mazdin logotip**. Projekt je zasnovan kot preprosta, čista in vizualno privlačna spletna stran, ki prikazuje, kako lahko matematične krivulje uporabimo za natančno vektorsko grafiko.
+Projekt v katerem sem s pomočjo **Bézierjevih krivulj** poustvaril prepoznaven **Mazdin logotip**.  
+Spletna stran je preprosta, čista in vizualno privlačna ter prikazuje, kako lahko matematične krivulje uporabimo za natančno vektorsko grafiko.
 
 🔗 **Ogled spletne strani:**  
 https://tilencecko.github.io/Mazda/
@@ -13,20 +14,20 @@ Cilj projekta je bil raziskati, kako se Bézierjeve krivulje uporabljajo pri ris
 
 Pri projektu sem uporabil:
 
-- Bézierjeve krivulje za risanje logotipa
-- PNG različico logotipa za primerjavo
-- SVG različico logotipa za prikaz vektorske natančnosti
-- Preprosto, odzivno spletno stran, ki prikazuje vse tri elemente
+- Bézierjeve krivulje za risanje logotipa  
+- PNG različico logotipa za primerjavo  
+- SVG različico logotipa za prikaz vektorske natančnosti  
+- Preprosto, odzivno spletno stran, ki prikazuje vse tri elemente  
 
 ---
 
 ## 🛠️ Tehnologije
 
-- HTML5
-- CSS
-- JavaScript
-- Canvas (za Bézierjeve krivulje)
-- PNG & SVG grafike
+- HTML5  
+- CSS  
+- JavaScript  
+- Canvas (za Bézierjeve krivulje)  
+- PNG & SVG grafike  
 
 ---
 
@@ -37,3 +38,33 @@ Bézierjeve krivulje so temelj vektorske grafike. V tem projektu sem jih uporabi
 - natančno risanje oblin Mazdinega logotipa  
 - prikaz, kako se lahko matematično definira kompleksna oblika  
 - primerjavo med ročno narisanim logotipom in originalnimi PNG/SVG datotekami  
+
+---
+
+## 🎨 Spreminjanje barve SVG logotipa
+
+Na spletni strani sem dodal tudi funkcionalnost, ki omogoča **dinamično spreminjanje barve SVG logotipa**.
+
+Uporabnik lahko izbere poljubno barvo, SVG logotip pa se takoj posodobi, saj je vektorski format popolnoma prilagodljiv.
+
+Ta funkcionalnost prikazuje:
+
+- manipulacijo SVG elementov z JavaScriptom  
+- prednosti vektorske grafike (brez izgube kakovosti)  
+- interaktivnost in boljšo uporabniško izkušnjo  
+
+---
+
+## 🖼️ Slike (Preview)
+
+<img width="359" height="283" alt="image" src="https://github.com/user-attachments/assets/9ba85e70-d4c9-48d4-a306-77d08f953f6e" />
+
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/be6e8db5-1be1-4864-ae22-bd768e16349a" width="400"><br>
+  <em>Bézierjeve krivulje</em>
+</p>
+
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/9ba85e70-d4c9-48d4-a306-77d08f953f6e" width="400"><br>
+  <em>SVG</em>
+</p>
