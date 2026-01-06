@@ -57,7 +57,7 @@ Ta funkcionalnost prikazuje:
 
 ## 🖼️ Slike (Preview)
 <p align="center">
-  <img src="https://github.com/user-attachments/assets/be6e8db5-1be1-4864-ae22-bd768e16349a" width="400"><br>
+  <img src="https://github.com/user-attachments/assets/d2d63af6-53c2-4263-aa74-e9cd55e5f860" width="400"><br>
   <em>Bézierjeve krivulje</em>
 </p>
 
