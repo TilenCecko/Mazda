@@ -21,11 +21,9 @@ document.getElementById("mojaTocka").addEventListener("click", function () {
                 }
             });
 
-            // 🔥 Ko uporabnik klikne SAVE → dobimo barvo
             pickr.on('save', (color) => {
                 const hex = color.toHEXA().toString(); // ← tukaj dobiš barvo
 
-                // Spremeni barvo SVG logotipa
                 document.getElementById("logo").setAttribute("fill", hex);
              
 
