@@ -180,23 +180,52 @@ a {
     left: 89%;
     top: 60%;
 }
-#mojaTocka2{
-    position: absolute;        
-    width: 50px;               
+
+#mojaTocka,
+#mojaTocka2 {
+    position: absolute;
+    width: 50px;
     height: 50px;
-    border-radius: 50%;       
+    border-radius: 50%;
     cursor: pointer;
-    left: 0%;
-    top: 60%;
+    transform: translate(-50%, -50%);
+    z-index: 999;
 }
 
-.hero-overlay {
+/* LUČ 2 */
+#mojaTocka {
+    left: 62%;
+    top: 58%;
+}
+
+/* LUČ 1 */
+#mojaTocka2 {
+    left: 38%;
+    top: 58%;
+}
+.hero {
+    position: relative;
+    min-height: 100vh;
+    overflow: hidden;
+}
+
+.hero-car {
     position: absolute;
     inset: 0;
-    background: url("../img/avto.jpg")
-        center right/cover no-repeat;
-    opacity: 0.35;
-    mix-blend-mode: screen;
+    z-index: 0;
+    opacity: 0.6;
+}
+
+.hero-car-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: right center;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
 }
 
 .hero::after {
@@ -462,20 +491,6 @@ section {
 .footer-right a {
     color: #a1a1aa;
 }
-@media (width: 2560px) {
-
-    #mojaTocka {
-        left: 103%;
-        top: 65%;
-    }
-
-    #mojaTocka2 {
-        left: -14%;
-        top: 67%;
-    }
-
-}
-
 
 @media (max-width: 1024px) {
     .models-grid {
