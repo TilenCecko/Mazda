@@ -171,6 +171,25 @@ a {
     overflow: hidden;
 }
 
+#mojaTocka{
+    position: absolute;        
+    width: 50px;               
+    height: 50px;
+    border-radius: 50%;       
+    cursor: pointer;
+    left: 89%;
+    top: 60%;
+}
+#mojaTocka2{
+    position: absolute;        
+    width: 50px;               
+    height: 50px;
+    border-radius: 50%;       
+    cursor: pointer;
+    left: 0%;
+    top: 60%;
+}
+
 .hero-overlay {
     position: absolute;
     inset: 0;
@@ -294,6 +313,11 @@ section {
     min-height: 320px;
     box-shadow: 0 18px 40px rgba(0,0,0,0.5);
 }
+.model-card:hover{
+    transition: transform 0.5s ease;
+    transform: scale(1.05);
+}
+
 
 .model-image {
     height: 300px;
@@ -437,6 +461,19 @@ section {
 
 .footer-right a {
     color: #a1a1aa;
+}
+@media (width: 2560px) {
+
+    #mojaTocka {
+        left: 103%;
+        top: 65%;
+    }
+
+    #mojaTocka2 {
+        left: -14%;
+        top: 67%;
+    }
+
 }
 
 
