@@ -56,17 +56,17 @@ Ta funkcionalnost prikazuje:
 ---
 
 ## 🖼️ Slike (Preview)
-<p align="center">
+<p float="left">
   <img src="https://github.com/user-attachments/assets/5424a59d-5730-4f6d-b87a-e9c28ca53119" width="400"><br>
   <em>Bézierjeve krivulje</em>
 </p>
 
-<p align="center">
+<p float="left">
   <img src="https://github.com/user-attachments/assets/9ba85e70-d4c9-48d4-a306-77d08f953f6e" width="400"><br>
   <em>SVG</em>
 </p>
 
-<p align="center">
+<p float="left">
   <img src="https://github.com/user-attachments/assets/dd232153-8b08-4ebf-bb99-d54f31e27cc7" width="400"><br>
   <em>PNG</em>
 </p>
