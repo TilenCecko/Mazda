@@ -1,82 +1,106 @@
-const SVGIcons = {
-  "asd": {
-    draw: function (ctx) {
-      ctx.save();
-      ctx.scale(1.8, 0.9);
-      ctx.beginPath();
-      ctx.moveTo(136, 37);
-      ctx.bezierCurveTo(135, 36, 135, 35, 134, 35);
-      ctx.bezierCurveTo(119, 19, 95, 15, 74, 15);
-      ctx.bezierCurveTo(53, 15, 28, 19, 13, 36);
-      ctx.bezierCurveTo(13, 36, 13, 36, 12, 36);
-      ctx.bezierCurveTo(5, 45, 1, 58, 1, 74);
-      ctx.bezierCurveTo(1, 125, 42, 134, 74, 134);
-      ctx.bezierCurveTo(106, 134, 147, 125, 147, 74);
-      ctx.bezierCurveTo(147, 58, 143, 45, 136, 36);
-      ctx.closePath();
+// ===== SVG POINTS (tvoja pot) =====
+const svgPoints = `
+234,2 234,10 298,10 298,26 250,26 250,42 266,42 266,58 250,58 250,74
+266,74 266,90 250,90 250,106 282,106 282,122 314,122 314,90
+346,90 346,106 330,106 330,138 218,138 218,170 250,170 250,186
+218,186 218,202 282,202 282,218 266,218 266,266 282,266 282,250
+298,250 298,234 314,234 314,266 298,266 298,282 282,282 282,298
+298,298 298,314 330,314 330,346 298,346 298,330 282,330 282,362
+298,362 298,378 282,378 282,394 218,394 218,346 234,346 234,362
+266,362 266,314 234,314 234,330 218,330 218,314 202,314 202,298
+170,298 170,266 154,266 154,282 122,282 122,250 74,250 74,218
+58,218 58,202 26,202 26,218 10,218 10,250 42,250 42,266
+10,266 10,314 26,314 26,330 42,330 42,314 74,314 74,346
+58,346 58,394 42,394 42,346 10,346 10,394 26,394 26,426
+42,426 42,410 58,410 58,442 74,442 74,426 90,426 90,442
+106,442 106,458 138,458 138,442 170,442 170,426 234,426
+234,458 250,458 250,442 298,442 298,474 250,474 250,482
+`;
 
-      ctx.moveTo(26, 45);
-      ctx.bezierCurveTo(36, 29, 55, 26, 74, 26);
-      ctx.bezierCurveTo(93, 26, 111, 29, 121, 44);
-      ctx.bezierCurveTo(122, 44, 122, 45, 122, 45);
-      ctx.bezierCurveTo(105, 55, 86, 56, 74, 81);
-      ctx.bezierCurveTo(61, 56, 42, 56, 25, 47);
-      ctx.bezierCurveTo(26, 46, 26, 45, 26, 45);
-      ctx.closePath();
+// ===== PRETVORBA SVG → CANVAS FORMAT =====
+const points = svgPoints
+  .trim()
+  .split(/\s+/)
+  .flatMap(p => p.split(',').map(Number));
 
-      ctx.moveTo(74, 123);
-      ctx.bezierCurveTo(46, 123, 19, 115, 19, 74);
-      ctx.bezierCurveTo(19, 71, 19, 68, 20, 65);
-      ctx.bezierCurveTo(20, 65, 20, 64, 20, 64);
-      ctx.bezierCurveTo(29, 67, 39, 70, 48, 73);
-      ctx.bezierCurveTo(60, 78, 67, 85, 74, 99);
-      ctx.bezierCurveTo(81, 85, 88, 77, 99, 73);
-      ctx.bezierCurveTo(109, 69, 119, 66, 128, 62);
-      ctx.bezierCurveTo(128, 62, 128, 63, 128, 63);
-      ctx.bezierCurveTo(129, 66, 129, 70, 129, 74);
-      ctx.bezierCurveTo(129, 115, 102, 123, 74, 123);
-      ctx.closePath();
-      ctx.fillStyle = "white";
-      ctx.fill();
-      ctx.stroke();
-      ctx.restore();
-    }
-  }
-};
 
-function initCanvasAndDraw() {
-    const canvas = document.getElementById('myCanvas');
-    if (!canvas) return;
+// ===== CANVAS SETUP =====
+const canvas = document.getElementById("canvas");
+const ctx = canvas.getContext("2d");
 
-    const ctx = canvas.getContext('2d');
-    SVGIcons["asd"].draw(ctx);
+ctx.lineWidth = 5;
+ctx.strokeStyle = "#ff8800";
+ctx.lineCap = "round";
+ctx.shadowColor = "white";
+ctx.shadowBlur = 3;
+
+
+// =====  NASTAVITVE ANIMACIJE =====
+let steps = 10;        // smoothness
+let speed = 4;         // hitrost med segmenti
+let step = 0;
+let i = 0;
+let shown = false;
+
+
+// ===== INTERPOLACIJA =====
+function interpolate(x1, y1, x2, y2, step) {
+  return {
+    x: x1 + ((x2 - x1) / steps) * step,
+    y: y1 + ((y2 - y1) / steps) * step
+  };
 }
 
-window.addEventListener("load", () => {
-    initCanvasAndDraw();
 
-    const loader = document.getElementById("loading-screen");
-    const path = document.getElementById("mazdaPath");
+// =====  ANIMACIJA RISANJA =====
+function animateDrawing() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-    if (!loader || !path) return;
+  i = 0;
+  shown = true;
 
-    // Izračun dolžine poti za animacijo
-    const length = path.getTotalLength();
-    path.style.strokeDasharray = length;
-    path.style.strokeDashoffset = length;
+  ctx.beginPath();
+  ctx.moveTo(points[0], points[1]);
 
-    // Fill efekt po risanju
-    setTimeout(() => {
-        path.style.transition = "fill 0.8s ease-in";
-        path.style.fill = "white";
-    }, 1000); // po koncu draw animacije
+  function drawLine() {
+    if (!shown || i >= points.length / 2 - 1) return;
 
-    // Skrij loading screen
-    setTimeout(() => {
-        loader.classList.add("hidden");
-    }, 2500); // po fill animaciji
-});
+    const x1 = points[i * 2];
+    const y1 = points[i * 2 + 1];
+    const x2 = points[(i + 1) * 2];
+    const y2 = points[(i + 1) * 2 + 1];
+
+    step = 0;
+
+    function drawSmooth() {
+      if (!shown) return;
+
+      if (step <= steps) {
+        const { x, y } = interpolate(x1, y1, x2, y2, step);
+        ctx.lineTo(x, y);
+        ctx.stroke();
+        step++;
+        requestAnimationFrame(drawSmooth);
+      } else {
+        i++;
+        setTimeout(drawLine, speed);
+      }
+    }
+
+    drawSmooth();
+  }
+
+  drawLine();
+}
+
+
+// =====  RESET =====
+function reset() {
+  shown = false;
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+}
 
 
 
-
+document.getElementById("gumb").addEventListener("click", animateDrawing);
+document.getElementById("gumb2").addEventListener("click", reset);
